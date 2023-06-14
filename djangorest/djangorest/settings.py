@@ -33,7 +33,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'music',
+    'user_api',
     'rest_framework',
+    'rest_framework.authtoken',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -137,3 +139,11 @@ EMAIL_HOST_USER = local_settings.EMAIL_HOST_USER
 # el. pašto adresas iš kurio siųsite
 EMAIL_HOST_PASSWORD = local_settings.EMAIL_HOST_PASSWORD
 # slaptažodis
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}

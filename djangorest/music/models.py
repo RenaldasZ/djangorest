@@ -7,7 +7,11 @@ User = get_user_model()
 
 class Band(models.Model):
     name = models.CharField(_("name"), max_length=200)
-
+    picture = models.ImageField(
+        _("picture"), 
+        upload_to='band/pictures',
+        null=True, blank=True,
+    )
     class Meta:
         verbose_name = _("band")
         verbose_name_plural = _("bands")
